@@ -61,6 +61,11 @@ python setup.py install
 mkdir local_data
 ```
 The installation may take some time as several packages must be downloaded and installed/compiled. If you plan to change the code, run `python setup.py develop`.
+The environment.yaml has something to adjust:
+channels=> -pytorch -conda-forge -default
+dependences=> pytorch=1.3.1=py3.7_cuda10.1.243_cudnn7.6.3_0 -> pytorch=1.3.1
+              torchvision=0.4.2=py37_cu101 -> torchvision=0.4.2
+pip install would have some issues; you can install some packages yourself.
 
 # Downloading and preparing data
 
