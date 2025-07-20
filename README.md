@@ -51,6 +51,21 @@ This repository contains the code for the full RoboPose approach and for reprodu
 
 ![overview](images/method_overview.png)
 
+# My Adjust
+## The environment.yaml has something to adjust: 
+```
+channels:
+  - pytorch
+  - conda-forge
+  - default
+dependences:
+  - pytorch=1.3.1=py3.7_cuda10.1.243_cudnn7.6.3_0 -> - pytorch=1.3.1
+  - torchvision=0.4.2=py37_cu101 -> - torchvision=0.4.2
+```
+`pip` install some packages would have issues; you can install those packages yourself.
+The CUDA toolkit has a version issue if you just follow the steps. You need to uninstall the old version and reinstall the version that fits your device CUDA driver. In my situation, I have to reinstall `assimp` using `conda install -c conda-forge assimp` after I install the correct `nvcc`.
+
+
 # Installation
 ```
 git clone --recurse-submodules https://github.com/ylabbe/robopose.git
@@ -61,11 +76,6 @@ python setup.py install
 mkdir local_data
 ```
 The installation may take some time as several packages must be downloaded and installed/compiled. If you plan to change the code, run `python setup.py develop`.
-The environment.yaml has something to adjust:
-channels=> -pytorch -conda-forge -default
-dependences=> pytorch=1.3.1=py3.7_cuda10.1.243_cudnn7.6.3_0 -> pytorch=1.3.1
-              torchvision=0.4.2=py37_cu101 -> torchvision=0.4.2
-pip install would have some issues; you can install some packages yourself.
 
 # Downloading and preparing data
 
