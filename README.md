@@ -63,6 +63,9 @@ dependences:
   - torchvision=0.4.2=py37_cu101 -> - torchvision=0.4.2
 ```
 `pip` install some packages would have issues; you can install those packages yourself.
+```
+pip install wget pyyaml joblib
+```
 The CUDA toolkit has a version issue if you just follow the steps. You need to uninstall the old version and reinstall the version that fits your device CUDA driver. In my situation, I have to reinstall `assimp` using `conda install -c conda-forge assimp` after I install the correct `nvcc`.
 
 
